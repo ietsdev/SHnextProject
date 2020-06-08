@@ -33,6 +33,9 @@ export class Heroe {
    //Obtiene o asigna vigente
    vigente: boolean;   
 
-   //Obtiene o asigna archivo
+   //Obtiene o asigna Raza
    raza: Raza;
+
+   //maneja el id de raza
+   razaId: number;
 }

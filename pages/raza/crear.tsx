@@ -1,17 +1,17 @@
 import Container from "../../components/container"
-import { razaService } from "../../services/raza.service";
+import * as razaService from '../../services/raza.service';
 import { Raza } from "../../model/raza.model";
 import Input from "../../components/Input";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-const Crear = (props) => { 
-    console.log(props);
-    let model = new Raza();
-    let service = new razaService();
+const Crear = (props) => {     
+    let model = new Raza();    
 
     const handleSubmit = (e) => {
         e.preventDefault()       
         let newRaza = model;      
-        service.addRaza(newRaza).then(async result  =>  { 
+        razaService.Agregar(newRaza).then(async result  =>  { 
           const post = await result.json()
           console.log(post);
         })
@@ -28,12 +28,12 @@ const Crear = (props) => {
 
     return (
      <Container>
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
               <div>
-                <Input title={'Descripción'} name={'descripcion'} handleChange = {handleInput}/>
-              </div>
-          <input type='submit' value='Submit' />
-        </form>
+                <Input required title={'Descripción'} name={'descripcion'} handleChange = {handleInput}/>                
+                <Button type="submit" className="btn btn-primary" >Crear</Button>
+              </div>         
+        </Form>
      </Container>
     )
 }
