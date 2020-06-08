@@ -3,18 +3,20 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-boots
 const Navigation = () => {
 	return (
 		<Navbar bg="light" expand="lg">
-		<Navbar.Brand href="/">Home</Navbar.Brand>
+		<Navbar.Brand href="/">Inicio</Navbar.Brand>
 		<Navbar.Toggle aria-controls="basic-navbar-nav" />
 		<Navbar.Collapse id="basic-navbar-nav">
 			<Nav className="mr-auto">
-			<Nav.Link href="/">Inicio</Nav.Link>
-			<Nav.Link href="/superheroe/crear">Ingreso Super Heroe</Nav.Link>
-			<Nav.Link href="/raza/crear">Ingreso raza</Nav.Link>
-			<NavDropdown title="Ejemplos" id="basic-nav-dropdown">
-				<NavDropdown.Item href="/about">ejemplo 1</NavDropdown.Item>
-				<NavDropdown.Item href="/index">ejemplo 2</NavDropdown.Item>
+			{/* <Nav.Link href="/">Inicio</Nav.Link> */}
+			<NavDropdown title="Raza" id="raza-nav">
+				<NavDropdown.Item href="/raza/crear">Crear</NavDropdown.Item>
 				<NavDropdown.Divider />
-				<NavDropdown.Item href="/raza/crear">ejemplo 3</NavDropdown.Item>
+				<NavDropdown.Item href="/raza/listar">Listar</NavDropdown.Item>
+			</NavDropdown>
+			<NavDropdown title="Heroes" id="heroes-nav">
+				<NavDropdown.Item href="/superheroe/crear">Crear</NavDropdown.Item>				
+				<NavDropdown.Divider />
+				<NavDropdown.Item href="/superheroe/listar">Listar</NavDropdown.Item>
 			</NavDropdown>
 			</Nav>
 			<Form inline>

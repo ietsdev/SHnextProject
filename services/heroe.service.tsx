@@ -2,11 +2,26 @@ import fetch from 'node-fetch'
 import { processEnv } from 'next/dist/lib/load-env-config'
 import { Heroe } from '../model/heroe.model';
 
-export async function getHeroes(){
+/*debe validarse el resultado */
+export async function getHeroes() : Promise<Heroe[]>{
+    let heroes =  new Array<Heroe>();
     process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-    const res = await fetch('https://localhost:44343/SuperHeroes/Listar')
-    var data = Array<Heroe>()
-    data = await res.json()    
+    return await fetch('https://localhost:44343/SuperHeroes/Listar') 
+           .then(responses => responses.json())  
+           .catch(error => { console.log(error); return heroes; } )   
+}
 
-    return data
+/*debe validarse el resultado */
+export async function postHeroe(heroe: Heroe) : Promise<Heroe[]>{
+    let heroes =  new Array<Heroe>();
+    process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+    return await fetch('https://localhost:44343/SuperHeroes/Agregar',{
+                method: 'POST',
+                headers:{
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(heroe)
+            }) 
+           .then(responses => responses.json())  
+           .catch(error => { console.log(error); return heroes; } )   
 }
