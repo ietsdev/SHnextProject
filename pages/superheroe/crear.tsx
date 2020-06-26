@@ -2,7 +2,7 @@ import Container from "../../components/container"
 import { Heroe } from "../../model/heroe.model";
 import { postHeroe } from "../../services/heroe.service"
 import { Form } from "react-bootstrap";
-import Input from "../../components/Input";
+import Input from "../../components/input";
 
 const Crear = (props) => { 
     let model = new Heroe();
