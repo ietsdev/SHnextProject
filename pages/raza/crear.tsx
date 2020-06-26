@@ -16,7 +16,7 @@ const Crear = (props) => {
           console.log(post);
         })
         .catch(error => {
-          console.log(error);
+          //console.log(error);
         });
               
     }
