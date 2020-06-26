@@ -6,7 +6,7 @@ import { Heroe } from '../model/heroe.model';
 export async function getHeroes() : Promise<Heroe[]>{
     let heroes =  new Array<Heroe>();
     process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-    return await fetch('https://localhost:44343/SuperHeroes/Listar') 
+    return await fetch('https://localhost:5001/SuperHeroes/Listar') 
            .then(responses => responses.json())  
            .catch(error => { console.log(error); return heroes; } )   
 }
@@ -15,7 +15,7 @@ export async function getHeroes() : Promise<Heroe[]>{
 export async function postHeroe(heroe: Heroe) : Promise<Heroe[]>{
     let heroes =  new Array<Heroe>();
     process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-    return await fetch('https://localhost:44343/SuperHeroes/Agregar',{
+    return await fetch('https://localhost:5001/SuperHeroes/Agregar',{
                 method: 'POST',
                 headers:{
                 'Content-Type': 'application/json'

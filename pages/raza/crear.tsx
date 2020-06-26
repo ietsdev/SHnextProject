@@ -1,7 +1,7 @@
 import Container from "../../components/container"
 import * as razaService from '../../services/raza.service';
 import { Raza } from "../../model/raza.model";
-import Input from "../../components/Input";
+import Input from "../../components/input";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -16,7 +16,7 @@ const Crear = (props) => {
           console.log(post);
         })
         .catch(error => {
-          console.log(error);
+          //console.log(error);
         });
               
     }
