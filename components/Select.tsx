@@ -1,4 +1,3 @@
-import { getRazas } from "../services/raza.service"
 import { Raza } from "../model/raza.model"
 
 const Select = (props) => {
