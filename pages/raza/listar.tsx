@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button"
 
 const Listar = (props) => {
     let state = { razas : props.razas, refresh : true }
-
+    console.log(state)
     const reload = async(delRaza) => {
         state.razas.pop(delRaza);
     }

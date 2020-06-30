@@ -1,12 +1,16 @@
 import Container from "../../components/container"
 import { Heroe } from "../../model/heroe.model"
 import {ListarDetalleHeroe, ModificarHeroe} from '../../services/heroe.service'
+import {getRazas} from "../../services/raza.service"
 import { Form } from "react-bootstrap"
 import Input from "../../components/Input"
+import Select from "../../components/Select"
 import { Raza } from "../../model/raza.model"
 import { useRouter } from "next/router"
 
 const Modificar = (props) => {
+    let razas: Raza[] = new Array;
+    razas = props.data.razas;
     let modelHeroe: Heroe = props.data.heroes[0];
     let modelRaza = new Raza();
     const router = useRouter()
@@ -59,7 +63,7 @@ const Modificar = (props) => {
                     <Input defaultValue={modelHeroe.resistencia} title={'Resistencia'} name={'resistencia'} handleChange = {handleInput}/>  
                     <Input defaultValue={modelHeroe.inteligencia} title={'Inteligencia'} name={'inteligencia'} handleChange = {handleInput}/>  
                     <Input defaultValue={modelHeroe.superPoder} title={'SuperPoder'} name={'superPoder'} handleChange = {handleInput}/>
-                    <Input defaultValue={modelHeroe.raza.descripcion} title={'Raza'} name={'raza'} handleChange = {handleInput} />
+                    <Select defaultValue={modelHeroe.raza.id} title={'Raza'} name={'raza'} handleChange = {handleInput} razas = {razas} />
                    
                     <Input type={'submit'} className={'btn btn-info'} value='Crear' />
                 </Form> 
@@ -68,8 +72,9 @@ const Modificar = (props) => {
 
 Modificar.getInitialProps = async (ctx) => {
   const heroes = await ListarDetalleHeroe(ctx.query.id);
-    
-	return { data: { heroes } }
+  const razas = await getRazas()
+
+	return { data: { heroes, razas } }
 }
 
 export default Modificar

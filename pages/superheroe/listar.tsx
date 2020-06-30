@@ -15,6 +15,7 @@ const Listar = (props) => {
                 <th>Nombre</th>
                 <th>Alias</th>
                 <th>Fecha Aparición</th>
+                <th>Raza</th>
                 <th key={'accionCol'}>Acciones</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@ const Listar = (props) => {
                     <td>{heroe.nombre}</td>
                     <td>{heroe.alias}</td>
                     <td>{heroe.fechaAparicion}</td>
+                    <td>{heroe.raza.descripcion}</td>
                     <td>
                         <Button href={`${heroe.id}`} className="btn btn-primary" >Modificar</Button>&nbsp;
                         <Button onClick={(e) => EliminarHeroe(heroe.id)} className="btn btn-primary" >Eliminar</Button>

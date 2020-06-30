@@ -3,9 +3,13 @@ import { Heroe } from "../../model/heroe.model"
 import * as heroeService from '../../services/heroe.service'
 import { Form } from "react-bootstrap"
 import Input from "../../components/Input"
+import Select from "../../components/Select"
 import { Raza } from "../../model/raza.model"
+import { getRazas } from "../../services/raza.service"
 
 const Crear = (props) => { 
+    let razas: Raza[] = new Array;
+    razas = props.data.razas;
     let modelHeroe = new Heroe();
     let modelRaza = new Raza();
 
@@ -53,7 +57,7 @@ const Crear = (props) => {
                     <Input title={'Resistencia'} name={'resistencia'} handleChange = {handleInput}/>  
                     <Input title={'Inteligencia'} name={'inteligencia'} handleChange = {handleInput}/>  
                     <Input title={'SuperPoder'} name={'superPoder'} handleChange = {handleInput}/>
-                    <Input title={'Raza'} name={'raza'} handleChange = {handleInput} />
+                    <Select title={'Raza'} name={'raza'} handleChange = {handleInput} razas = {props.data.razas} />
                    
                     <Input type={'submit'} className={'btn btn-info'} value='Crear' />
                 </Form> 
@@ -62,7 +66,8 @@ const Crear = (props) => {
 
 Crear.getInitialProps = async (ctx) => {
      const heroe = new Heroe()
-     return heroe;
+     const razas = await getRazas()
+     return { data: { heroe, razas } }
   }
 
 export default Crear
