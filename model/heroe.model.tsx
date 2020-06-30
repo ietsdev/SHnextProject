@@ -35,7 +35,4 @@ export class Heroe {
 
    //Obtiene o asigna Raza
    raza: Raza;
-
-   //maneja el id de raza
-   razaId: number;
 }

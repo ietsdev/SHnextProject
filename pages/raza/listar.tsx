@@ -44,6 +44,7 @@ const Listar = (props) => {
 }
 
 Listar.getInitialProps = async (ctx) => {
+    console.log(ctx);
 	const razas = await getRazas()
 	return { razas :  razas }
 }

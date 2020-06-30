@@ -8,7 +8,7 @@ const Input = (props) => {
             id={props.name}
             name={props.name}
             type={props.type}
-            value={props.value}
+            defaultValue={props.defaultValue}
             onChange={props.handleChange}
             placeholder={props.placeholder} 
             />
